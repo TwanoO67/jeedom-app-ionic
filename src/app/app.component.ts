@@ -31,7 +31,7 @@ export class MyApp {
     ];
 
     this.jeedom.getFullData().subscribe(
-      (data) => {
+      (data: Array<any>) => {
         console.log(data);
         for (let index = 0; index < data.length; index++) {
           let element = data[index];

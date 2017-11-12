@@ -1,8 +1,9 @@
 {
-  "name": "myApp",
+  "name": "JeedomIonicApp",
   "app_id": "20ef217c",
   "type": "ionic-angular",
   "integrations": {
-    "gulp": {}
+    "gulp": {},
+    "cordova": {}
   }
 }
