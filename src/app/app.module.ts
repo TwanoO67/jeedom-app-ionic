@@ -7,6 +7,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 
+import { JeedomService } from '../services/jeedom.service';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -29,6 +31,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   providers: [
     StatusBar,
+    JeedomService,
     HttpClient,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
