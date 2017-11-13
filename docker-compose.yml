@@ -1,0 +1,10 @@
+version: '2'
+services:
+    app:
+        container_name: karma2_ionic
+        build:
+            context: .
+            dockerfile: ./build/Dockerfile
+        volumes:
+            - .:/myApp
+            #- ~/.gradle:/root/.gradle
