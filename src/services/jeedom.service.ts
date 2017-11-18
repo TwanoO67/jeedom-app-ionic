@@ -1,15 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Storage } from '@ionic/storage';
+import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 @Injectable()
 export class JeedomService {
     public headers: HttpHeaders;
-    private serverWithApiUrl: string = "http://192.168.0.23/core/api/jeeApi.php?apikey=KLBV1d4WblTg7vIMkGcRvswpQpXdi1NZ";
+    public api_url = '';//http://192.168.0.23';
+    public api_key = '';//'KLBV1d4WblTg7vIMkGcRvswpQpXdi1NZ';
 
-    constructor(private http: HttpClient) {
+    private full_data: ReplaySubject;
+
+    constructor(
+      private http: HttpClient,
+      private storage: Storage
+    ) {
         this.headers = new HttpHeaders();
         this.headers.append('Content-Type', 'application/json');
         this.headers.append('Accept', 'application/json');
+        this.storage.get('api_url').then((val) => {
+          this.api_url = val;
+        });
+        this.storage.get('api_key').then((val) => {
+          this.api_key = val;
+        });
+        this.full_data = new ReplaySubject(1);
     }
 
     public setApiUrl( url: string) {
@@ -17,11 +32,17 @@ export class JeedomService {
     }
 
     private getActionUrl() {
-      return this.serverWithApiUrl;
+      // return this.serverWithApiUrl;
+      return this.api_url+"/core/api/jeeApi.php?apikey="+this.api_key;
     }
 
     public getFullData() {
-        return this.http.get(this.getActionUrl()+'&type=fullData', { headers: this.headers });
+        // provoque recuperation
+        this.http.get(this.getActionUrl()+'&type=fullData', { headers: this.headers }).subscribe((data) => {
+          this.full_data.next(data);
+        });
+
+        return this.full_data;
     }
 
     public scenario(id, action) {
@@ -56,7 +77,7 @@ export class JeedomService {
         return this.http.get(url, { headers: this.headers });
     }
 
-   /* 
+   /*
    category : catégorie du message à ajouter au centre de message
     message : message en question, attention à bien penser à encoder le message (espace devient %20, = %3D…
     */
@@ -75,5 +96,5 @@ export class JeedomService {
     public getCommands(equipment_id){
         return this.http.get(this.getActionUrl()+'&type=command&eqLogic_id='+equipment_id, { headers: this.headers });
     }
-    
+
 }

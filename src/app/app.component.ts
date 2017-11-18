@@ -18,8 +18,8 @@ export class MyApp {
   pages: Array<{title: string, component: any, data: any}>;
 
   constructor(
-    public platform: Platform, 
-    public statusBar: StatusBar, 
+    public platform: Platform,
+    public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     public jeedom: JeedomService
   ) {
@@ -32,11 +32,15 @@ export class MyApp {
 
     this.jeedom.getFullData().subscribe(
       (data: Array<any>) => {
-        console.log(data);
+        // on re initialise le menu
+        this.pages = [
+          { title: 'Accueil', component: HomePage, 'data': {} }
+        ];
+        // et ajoute les pieces
         for (let index = 0; index < data.length; index++) {
           let element = data[index];
           this.pages.push({
-            'title': element.name, 
+            'title': element.name,
             component: ListPage,
             'data': element
           });

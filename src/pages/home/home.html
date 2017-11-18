@@ -14,7 +14,12 @@
     Bienvenue dans appli domotique
   </p>
 
-  <button ion-button secondary menuToggle>Accéder à vos piéces</button>
+  <button ion-button secondary menuToggle (click)='refresh()'>Accéder à vos piéces</button><br/>
+  <br/>
+  Réglages:<br/>
+  <br/>
+  API URL <input type="text" [(ngModel)]="api_url" /><br/>
+  API KEY <input type="text" [(ngModel)]="api_key" /><br/>
+  <button ion-button secondary (click)="save()">Enregistrer</button>
 
-  
 </ion-content>
