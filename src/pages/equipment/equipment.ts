@@ -41,7 +41,7 @@ export class EquipmentPage {
 
   itemTapped(event, item) {
     console.log('tap item',item);
-    this.jeedom.action(item.id).subscribe((data: Array<any>) =>
+    this.jeedom.action(item.id).subscribe((data:string) =>
     {
       console.log(data);
       if(item.type == "info"){

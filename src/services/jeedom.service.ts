@@ -9,7 +9,7 @@ export class JeedomService {
     public api_url = '';//http://192.168.0.23';
     public api_key = '';//'KLBV1d4WblTg7vIMkGcRvswpQpXdi1NZ';
 
-    private full_data: ReplaySubject;
+    private full_data: ReplaySubject<any>;
 
     constructor(
       private http: HttpClient,
@@ -25,10 +25,6 @@ export class JeedomService {
           this.api_key = val;
         });
         this.full_data = new ReplaySubject(1);
-    }
-
-    public setApiUrl( url: string) {
-      this.serverWithApiUrl = url;
     }
 
     private getActionUrl() {
