@@ -6,6 +6,14 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { EquipmentPage } from '../pages/equipment/equipment';
+
+let pages = [
+  MyApp,
+  HomePage,
+  ListPage,
+  EquipmentPage
+];
 
 import { JeedomService } from '../services/jeedom.service';
 
@@ -14,9 +22,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    ListPage
+    ...pages
   ],
   imports: [
     BrowserModule,
@@ -25,9 +31,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage,
-    ListPage
+    ...pages
   ],
   providers: [
     StatusBar,

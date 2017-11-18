@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { JeedomService } from '../../services/jeedom.service';
 import { NavController, NavParams } from 'ionic-angular';
+import { EquipmentPage } from "../equipment/equipment";
 
 @Component({
   selector: 'page-list',
@@ -38,9 +39,8 @@ export class ListPage {
 
   itemTapped(event, item) {
     console.log('tap item',item);
-    // That's right, we're pushing to ourselves!
-    /*this.navCtrl.push(ListPage, {
-      item: item
-    });*/
+    this.navCtrl.push(EquipmentPage, {
+      data: item
+    });
   }
 }

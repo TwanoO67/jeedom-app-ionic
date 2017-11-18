@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Equipement: {{data.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      <ion-icon [name]="item.icon" item-start *ngIf='item.icon'></ion-icon>
+      {{item.name}}
+      <div class="item-note" item-end>
+        {{item.note}}
+      </div>
+    </button>
+  </ion-list>
+</ion-content>

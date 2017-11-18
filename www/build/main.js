@@ -58,9 +58,9 @@ var HomePage = (function () {
     }
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/myApp/src/pages/home/home.html"*/`<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h3>Home Control</h3>\n\n  <p>\n    Bienvenue dans appli domotique\n  </p>\n\n  <button ion-button secondary menuToggle>Accéder à vos piéces</button>\n\n  \n</ion-content>\n`/*ion-inline-end:"/myApp/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/home/twanoo/GIT/jeedom-app-ionic/src/pages/home/home.html"*/`<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h3>Home Control</h3>\n\n  <p>\n    Bienvenue dans appli domotique\n  </p>\n\n  <button ion-button secondary menuToggle>Accéder à vos piéces</button>\n\n  \n</ion-content>\n`/*ion-inline-end:"/home/twanoo/GIT/jeedom-app-ionic/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
     ], HomePage);
     return HomePage;
 }());
@@ -77,6 +77,7 @@ var HomePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_jeedom_service__ = __webpack_require__(99);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__equipment_equipment__ = __webpack_require__(279);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -86,6 +87,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -114,18 +116,18 @@ var ListPage = (function () {
     }
     ListPage.prototype.itemTapped = function (event, item) {
         console.log('tap item', item);
-        // That's right, we're pushing to ourselves!
-        /*this.navCtrl.push(ListPage, {
-          item: item
-        });*/
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__equipment_equipment__["a" /* EquipmentPage */], {
+            data: item
+        });
     };
     ListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-list',template:/*ion-inline-start:"/myApp/src/pages/list/list.html"*/`<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Piéce: {{data.name}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-start *ngIf=\'item.icon\'></ion-icon>\n      {{item.name}}\n      <!--div class="item-note" item-end>\n        {{item.note}}\n      </div-->\n    </button>\n  </ion-list>\n</ion-content>\n`/*ion-inline-end:"/myApp/src/pages/list/list.html"*/
+            selector: 'page-list',template:/*ion-inline-start:"/home/twanoo/GIT/jeedom-app-ionic/src/pages/list/list.html"*/`<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Piéce: {{data.name}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-start *ngIf=\'item.icon\'></ion-icon>\n      {{item.name}}\n      <!--div class="item-note" item-end>\n        {{item.note}}\n      </div-->\n    </button>\n  </ion-list>\n</ion-content>\n`/*ion-inline-end:"/home/twanoo/GIT/jeedom-app-ionic/src/pages/list/list.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1__services_jeedom_service__["a" /* JeedomService */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_jeedom_service__["a" /* JeedomService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_jeedom_service__["a" /* JeedomService */]) === "function" && _c || Object])
     ], ListPage);
     return ListPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=list.js.map
@@ -158,9 +160,10 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(270);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_list_list__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_jeedom_service__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_equipment_equipment__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_jeedom_service__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__ = __webpack_require__(198);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -175,6 +178,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+var pages = [
+    __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */],
+    __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */],
+    __WEBPACK_IMPORTED_MODULE_6__pages_list_list__["a" /* ListPage */],
+    __WEBPACK_IMPORTED_MODULE_7__pages_equipment_equipment__["a" /* EquipmentPage */]
+];
+
 
 
 var AppModule = (function () {
@@ -182,30 +192,22 @@ var AppModule = (function () {
     }
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_6__pages_list_list__["a" /* ListPage */]
-            ],
+            declarations: pages.slice(),
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */], {}, {
+                __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */], {}, {
                     links: []
                 }),
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* IonicApp */]],
-            entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_6__pages_list_list__["a" /* ListPage */]
-            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* IonicApp */]],
+            entryComponents: pages.slice(),
             providers: [
-                __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_7__services_jeedom_service__["a" /* JeedomService */],
+                __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_8__services_jeedom_service__["a" /* JeedomService */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */],
-                __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__["a" /* SplashScreen */],
-                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* IonicErrorHandler */] }
+                __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__["a" /* SplashScreen */],
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["c" /* IonicErrorHandler */] }
             ]
         })
     ], AppModule);
@@ -286,13 +288,13 @@ var MyApp = (function () {
         });
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Nav */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/myApp/src/app/app.html"*/`<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>`/*ion-inline-end:"/myApp/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/twanoo/GIT/jeedom-app-ionic/src/app/app.html"*/`<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>`/*ion-inline-end:"/home/twanoo/GIT/jeedom-app-ionic/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
             __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
             __WEBPACK_IMPORTED_MODULE_4__services_jeedom_service__["a" /* JeedomService */]])
@@ -301,6 +303,80 @@ var MyApp = (function () {
 }());
 
 //# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 279:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EquipmentPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_jeedom_service__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(40);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var EquipmentPage = (function () {
+    function EquipmentPage(navCtrl, navParams, jeedom, alertCtrl) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.jeedom = jeedom;
+        this.alertCtrl = alertCtrl;
+        this.data = {};
+        // If we navigated to this page, we will have an item available as a nav param
+        this.data = navParams.get('data');
+        console.log(this.data);
+        this.items = [];
+        this.jeedom.getCommands(this.data.id).subscribe(function (data) {
+            console.log(data);
+            _this.items = data.map(function (elem) {
+                if (elem.type === "info") {
+                    elem.icon = 'information-circle';
+                }
+                else if (elem.type === "action") {
+                    elem.icon = 'flash';
+                }
+                return elem;
+            });
+        });
+    }
+    EquipmentPage.prototype.itemTapped = function (event, item) {
+        var _this = this;
+        console.log('tap item', item);
+        this.jeedom.action(item.id).subscribe(function (data) {
+            console.log(data);
+            if (item.type == "info") {
+                var alert = _this.alertCtrl.create({
+                    title: item.name,
+                    subTitle: data,
+                    buttons: ['Ok']
+                });
+                alert.present();
+            }
+        });
+    };
+    EquipmentPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-equipment',template:/*ion-inline-start:"/home/twanoo/GIT/jeedom-app-ionic/src/pages/equipment/equipment.html"*/`<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Equipement: {{data.name}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n      <ion-icon [name]="item.icon" item-start *ngIf=\'item.icon\'></ion-icon>\n      {{item.name}}\n      <div class="item-note" item-end>\n        {{item.note}}\n      </div>\n    </button>\n  </ion-list>\n</ion-content>\n`/*ion-inline-end:"/home/twanoo/GIT/jeedom-app-ionic/src/pages/equipment/equipment.html"*/
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_jeedom_service__["a" /* JeedomService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_jeedom_service__["a" /* JeedomService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object])
+    ], EquipmentPage);
+    return EquipmentPage;
+    var _a, _b, _c, _d;
+}());
+
+//# sourceMappingURL=equipment.js.map
 
 /***/ }),
 
